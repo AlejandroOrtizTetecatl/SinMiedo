@@ -41,6 +41,7 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.0.1205, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.5.0.1205\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -61,6 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Conexion.cs" />
     <Compile Include="VentanMenu.xaml.cs">
       <DependentUpon>VentanMenu.xaml</DependentUpon>
     </Compile>
@@ -116,6 +118,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\User.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\man-15.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

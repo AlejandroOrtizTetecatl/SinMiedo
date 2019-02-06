@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace SinMiedos
 {
     /// <summary>
@@ -44,5 +45,11 @@ namespace SinMiedos
         {
             DragMove();
         }
+        private void Conexiondb(object sender, RoutedEventArgs e)
+        {
+            Conexion.conexion();
+            MessageBox.Show("Conexion Exitosa");
+        }
+
     }
 }
