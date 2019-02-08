@@ -13,31 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 namespace SinMiedos
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para PaginaDeMonitoreo.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PaginaDeMonitoreo : Page
     {
-        public MainWindow()
+        public PaginaDeMonitoreo()
         {
             InitializeComponent();
-        }
-
-        private void btnIngresar(object sender, RoutedEventArgs e)
-        {
-            String user = Usuario.Text;
-            String contra = Contrasenia.Password;
-           // MessageBox.Show(contra);
-
-            VentanMenu menu = new VentanMenu(user);
-            menu.Owner = this;
-            menu.Show();
-            this.Hide();
-
-        
         }
     }
 }

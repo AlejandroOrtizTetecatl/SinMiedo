@@ -63,9 +63,22 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Conexion.cs" />
+    <Compile Include="FormularioUsuario.xaml.cs">
+      <DependentUpon>FormularioUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaDeMonitoreo.xaml.cs">
+      <DependentUpon>PaginaDeMonitoreo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaDeReportes.xaml.cs">
+      <DependentUpon>PaginaDeReportes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanMenu.xaml.cs">
       <DependentUpon>VentanMenu.xaml</DependentUpon>
     </Compile>
+    <Page Include="FormularioUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +91,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PaginaDeMonitoreo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaginaDeReportes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VentanMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

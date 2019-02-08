@@ -47,3 +47,9 @@ D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\SinMiedos.pdb
 D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\MySql.Data.dll
 D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\Google.Protobuf.dll
 D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\MySql.Data.xml
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\FormularioUsuario.g.cs
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\FormularioUsuario.baml
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\PaginaDeMonitoreo.g.cs
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\PaginaDeReportes.g.cs
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\PaginaDeMonitoreo.baml
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\PaginaDeReportes.baml
