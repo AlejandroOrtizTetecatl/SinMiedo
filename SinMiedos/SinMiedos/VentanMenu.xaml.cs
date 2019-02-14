@@ -29,7 +29,7 @@ namespace SinMiedos
         {
             InitializeComponent();
             txtUsuario.Text = Nombre;
-          
+            btnNormal.Visibility = Visibility.Hidden;          
         }
 
 
@@ -53,6 +53,15 @@ namespace SinMiedos
         private void Maximizar(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Maximized;
+            btnNormal.Visibility = Visibility.Visible;
+            btnMaximizar.Visibility = Visibility.Hidden;
+
+        }
+        private void Normal(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Normal;
+            btnMaximizar.Visibility = Visibility.Visible;
+            btnNormal.Visibility = Visibility.Hidden;
         }
 
         private void Mover(object sender, MouseButtonEventArgs e)

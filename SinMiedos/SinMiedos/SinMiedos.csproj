@@ -62,10 +62,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Conexion.cs" />
     <Compile Include="FormularioUsuario.xaml.cs">
       <DependentUpon>FormularioUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Paciente.cs" />
     <Compile Include="PaginaDeMonitoreo.xaml.cs">
       <DependentUpon>PaginaDeMonitoreo.xaml</DependentUpon>
     </Compile>

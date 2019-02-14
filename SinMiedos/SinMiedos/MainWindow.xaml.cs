@@ -30,14 +30,21 @@ namespace SinMiedos
         {
             String user = Usuario.Text;
             String contra = Contrasenia.Password;
-           // MessageBox.Show(contra);
+            // MessageBox.Show(contra);
+            if (string.IsNullOrWhiteSpace(Usuario.Text)){
+                MessageBox.Show("Valores Nulo");
+            }
+            else
+            {
+                VentanMenu menu = new VentanMenu(user);
+                menu.Owner = this;
+                menu.Show();
+                this.Hide();
 
-            VentanMenu menu = new VentanMenu(user);
-            menu.Owner = this;
-            menu.Show();
-            this.Hide();
+            }
 
-        
+
+
         }
     }
 }

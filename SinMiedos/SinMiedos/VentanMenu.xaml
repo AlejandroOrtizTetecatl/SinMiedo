@@ -52,22 +52,22 @@
                     </Rectangle.Fill>
                 </Rectangle>
             </Grid>
-            <StackPanel Grid.Row="1">
-                <Button  Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionUsuario">
+            <StackPanel Grid.Row="1" Margin="0">
+                <Button Margin="0 10" Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionUsuario">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="Pacientes" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 
-                <Button  Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionMonitoreo">
+                <Button Margin="0 10"  Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionMonitoreo">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="HeartPulse" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="Monitoreo" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 
-                <Button  Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionReporte">
+                <Button Margin=" 0 10"  Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionReporte">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="FileDocumentOutline" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="Reportes" FontFamily="Champagne &amp; Limousines"/>
@@ -82,11 +82,18 @@
         <Grid x:Name="GridBarraTitulo" Grid.ColumnSpan="2" MouseDown="Mover" Background="#FF294473" ShowGridLines="False">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
                 <Button x:Name="btnSalir" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Minimizar">
-                    <materialDesign:PackIcon Kind="ExpandMore"/>
+                    <materialDesign:PackIcon Kind="WindowMinimize"/>
                 </Button>
-                <Button x:Name="btnMaximizar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Maximizar">
-                    <materialDesign:PackIcon Kind="ArrangeSendBackward"/>
-                </Button>
+                <Grid>
+                    <Button x:Name="btnMaximizar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Maximizar">
+                        <materialDesign:PackIcon Kind="WindowMaximize"/>
+                    </Button>
+
+                    <Button x:Name="btnNormal" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Normal">
+                        <materialDesign:PackIcon Kind="WindowRestore"/>
+                    </Button>
+                </Grid>
+
                 <Button x:Name="btnMinimizar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Salir">
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>
