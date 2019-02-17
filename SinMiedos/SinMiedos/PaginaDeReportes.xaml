@@ -3,13 +3,49 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:oxy="http://oxyplot.org/wpf"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     
       xmlns:local="clr-namespace:SinMiedos"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PaginaDeReportes">
 
-    <Grid Width="auto" Height="auto" Background="Orange">
+    <Grid Width="auto" Height="auto" Background="#FFEBF0F6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="37*"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Column="0">
+            <StackPanel Orientation="Horizontal" Margin="16,0,0,0">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontFamily="Open Sans" >Nombre del paciente:</TextBlock>
+                <ComboBox x:Name="ComboPacientes" materialDesign:HintAssist.Hint="Buscar paciente" IsEditable="False" materialDesign:HintAssist.HintOpacity=".26" Margin="5,25" Width="180">
+                    <ComboBoxItem>
+                        Alejandro Ortiz Tetecatl
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Cristian Rodriguez mayahua
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Jose Moises Aguilar Torres
+                    </ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="10 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontFamily="Open Sans" >Fecha:</TextBlock>
+                <DatePicker FontSize="18" Width="150"  materialDesign:HintAssist.Hint="DD/MM/AAAA"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0,0,0,38" Height="40" VerticalAlignment="Bottom"  />
+                <Button Click="BtnCalcular_Click" x:Name="btnCalcular" Margin="10"  Style="{StaticResource MaterialDesignRaisedDarkButton}"  >Buscar</Button>
+                <Button x:Name="btnGuardarPDF" Margin="10" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Resource name: MaterialDesignRaisedAccentButton">PDF</Button>
+
+            </StackPanel>
+        </Grid>
+
+
+        <Grid Grid.Row="1" Margin="16">
+            <oxy:PlotView x:Name="Grafica"/>
+        </Grid>
 
 
     </Grid>
+
 </Page>

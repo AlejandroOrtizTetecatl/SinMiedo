@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OxyPlot;
+using OxyPlot.Series;
+using OxyPlot.Axes;
+
 
 namespace SinMiedos
 {
@@ -20,9 +24,47 @@ namespace SinMiedos
     /// </summary>
     public partial class PaginaDeMonitoreo : Page
     {
+
+        public IList<DataPoint> Points { get; private set; }
+        Random r = new Random();
         public PaginaDeMonitoreo()
         {
             InitializeComponent();
+            btnCalcular.Click += BtnCalcular_Click;
         }
+
+        private void BtnCalcular_Click(object sender, RoutedEventArgs e)
+        {
+            String value = ((ComboBoxItem)ComboPacientes.SelectedItem).Content.ToString();
+
+            PlotModel model = new PlotModel();
+
+            model.Title = "Monitoriando a paciente : "+value;
+
+            LineSeries linea = new LineSeries();
+
+            LineSeries linea2 = new LineSeries();
+
+            for (int i = 0;i<10;i++)
+            {
+                linea.Points.Add(new DataPoint((i), Math.Pow(i,2)));
+                linea2.Points.Add(new DataPoint((i), (Math.Pow(i,2)+10)));
+
+            }
+
+            linea.Title = "Alfa";
+            linea2.Title = "Beta";
+
+
+            linea.Color = OxyColor.FromRgb(byte.Parse(r.Next(0, 255).ToString()), byte.Parse(r.Next(0, 255).ToString()), byte.Parse(r.Next(0, 255).ToString()));
+            linea2.Color = OxyColor.FromRgb(byte.Parse(r.Next(0, 255).ToString()), byte.Parse(r.Next(0, 255).ToString()), byte.Parse(r.Next(0, 255).ToString()));
+
+            model.Series.Add(linea);
+            model.Series.Add(linea2);
+
+            Grafica.Model = model;
+
+        }
+    
     }
 }

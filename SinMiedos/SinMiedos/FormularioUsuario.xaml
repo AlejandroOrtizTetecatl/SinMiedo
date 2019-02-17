@@ -22,9 +22,9 @@
         
         <Grid Margin="16,75,16,16" Background="White">
             
-            <materialDesign:DialogHost Name="Agregar" DialogClosing="Sample1_DialogHost_OnDialogClosing"  Height="Auto" Width="auto">
+            <materialDesign:DialogHost DialogClosing="Sample1_DialogHost_OnDialogClosing"  Height="Auto" Width="auto">
                 <materialDesign:DialogHost.DialogContent>
-                    <StackPanel Margin="16" Width="200" Height="400">
+                    <StackPanel Margin="16" >
                         <TextBox x:Name="txtNombre" Margin="0,10" materialDesign:HintAssist.Hint="Nombre" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18px"/>
                         <TextBox x:Name="txtPaterno" Margin="0,10" materialDesign:HintAssist.Hint="Apellido paterno" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18px"/>
                         <TextBox x:Name="txtMaterno" Margin="0,10" materialDesign:HintAssist.Hint="Apellido materno" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18px"/>
@@ -47,9 +47,25 @@
                     </StackPanel>
                 </materialDesign:DialogHost.DialogContent>
          
-                <Grid Height="Auto" Width="auto" >
+                
+            <Grid Height="Auto" Width="auto" >
+                    <!--<materialDesign:DialogHost  Height="Auto" Width="auto">
+                        <materialDesign:DialogHost.DialogContent>
+                            <StackPanel Margin="16">
+                                <TextBlock>¿Seguro desea eliminar al paciente permanentemente? </TextBlock>
+                                <TextBox Margin="0 8 0 0" HorizontalAlignment="Stretch" x:Name="FruitTextBox" />
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Button Style="{StaticResource MaterialDesignFlatButton}"  Margin="0 8 8 0">
+                                        Aceptar
+                                    </Button>
+                                    <Button Style="{StaticResource MaterialDesignFlatButton}" Margin="0 8 8 0" Command="materialDesign:DialogHost.CloseDialogCommand">
+                                        Cancelar
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </materialDesign:DialogHost.DialogContent>-->
 
-                    <DataGrid  Width="auto" Height="auto" x:Name="DataGrid"  Margin="0,0,0,9.6" Loaded="DataGrid_Paciente" AutoGenerateColumns="False">
+                        <DataGrid  Width="auto" Height="auto" x:Name="DataGrid"  Margin="0,0,0,9.6" Loaded="DataGrid_Paciente" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="150" Header="ID" Binding="{Binding Path=Id}" />
                             <DataGridTextColumn Width="150" Header="Nombre" Binding="{Binding Path=Nombre}" />
@@ -60,10 +76,10 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,0">
-                                            <Button Margin="10" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"  Width="25" Height="25"  Foreground="White" Background="#FF47BE7A" BorderBrush="#FF47BE7A">
+                                                <Button Margin="10" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"  Width="25" Height="25"  Foreground="White" Background="#FF47BE7A" BorderBrush="#FF47BE7A">
                                                 <materialDesign:PackIcon Kind="Edit"/>
                                             </Button>
-                                            <Button Margin="10" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25"  Foreground="White" Background="#FFC23B22" BorderBrush="#FFC23B22">
+                                            <Button Margin="10" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Click="EliminarA" Width="25" Height="25"  Foreground="White" Background="#FFC23B22" BorderBrush="#FFC23B22">
                                                 <materialDesign:PackIcon Kind="Close"/>
                                             </Button>
                                         </StackPanel>
@@ -74,7 +90,7 @@
                             
                         </DataGrid.Columns>
                     </DataGrid>
-
+                   <!-- </materialDesign:DialogHost>-->
 
 
                     <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"

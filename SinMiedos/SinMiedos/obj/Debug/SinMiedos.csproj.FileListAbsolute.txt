@@ -53,3 +53,10 @@ D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\PaginaDeMonitoreo.g.
 D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\PaginaDeReportes.g.cs
 D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\PaginaDeMonitoreo.baml
 D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\PaginaDeReportes.baml
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\OxyPlot.dll
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\OxyPlot.Wpf.dll
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\OxyPlot.pdb
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\OxyPlot.xml
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\OxyPlot.Wpf.pdb
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\OxyPlot.Wpf.xml
+D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\GeneratedInternalTypeHelper.g.cs

@@ -52,9 +52,18 @@ namespace SinMiedos
                 
         }
 
-
-
-
+        private void EliminarA(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("¿Deseas eliminar al paciente?",
+                                          "Eliminar Paciente",
+                                          MessageBoxButton.YesNo,
+                                          MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Console.WriteLine("Eilinado");
+            }          
+        }
+        
     }
 
 }

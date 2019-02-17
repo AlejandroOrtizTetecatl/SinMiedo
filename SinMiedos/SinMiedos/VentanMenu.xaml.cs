@@ -39,8 +39,14 @@ namespace SinMiedos
         }
         private void Salir(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
-
+            MessageBoxResult result = MessageBox.Show("¿Deseas salir de la aplicación?",
+                                         "Salir",
+                                         MessageBoxButton.YesNo,
+                                         MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
         }
 
         private void Minimizar(object sender, RoutedEventArgs e)
