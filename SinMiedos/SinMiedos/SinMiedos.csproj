@@ -68,6 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Conexion.cs" />
     <Compile Include="FormularioUsuario.xaml.cs">
       <DependentUpon>FormularioUsuario.xaml</DependentUpon>
     </Compile>

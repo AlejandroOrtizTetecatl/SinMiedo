@@ -30,9 +30,11 @@ namespace SinMiedos
         {
             String user = Usuario.Text;
             String contra = Contrasenia.Password;
-            // MessageBox.Show(contra);
-            if (string.IsNullOrWhiteSpace(Usuario.Text)){
-                MessageBox.Show("Valores Nulo");
+  
+            if (string.IsNullOrWhiteSpace(Usuario.Text) || string.IsNullOrWhiteSpace(Contrasenia.Password) ){
+
+                MessageBox.Show("Ingrese un usuario y contraseña", "Error",MessageBoxButton.OK, MessageBoxImage.Error);
+     
             }
             else
             {
