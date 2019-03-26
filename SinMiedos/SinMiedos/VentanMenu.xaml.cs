@@ -92,7 +92,12 @@ namespace SinMiedos
 
         }
 
- 
+        private void NavegacionDoctor(object sender, RoutedEventArgs e)
+        {
+            Contenedor.Source = new Uri("FormularioDoctor.xaml", UriKind.Relative);
+
+        }
+
     }
 
 }

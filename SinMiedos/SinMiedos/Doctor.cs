@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace SinMiedos
 {
-    public class Paciente
+    public class Doctor
     {
+
         public int Id { get; set; }
         public String Nombre { get; set; }
         public String Paterno { get; set; }
@@ -18,18 +19,18 @@ namespace SinMiedos
         public String Telefono { get; set; }
         public String Direccion { get; set; }
         public String Email { get; set; }
-        public bool Estatus { get; set; }
+        public String Cedula { get; set; }
 
-        public Paciente(int id,String nombre, String paterno, String materno,char sexo)
+        public Doctor(int id, String nombre, String paterno, String materno, char sexo,String cedula)
         {
-            this.Id = id; 
+            this.Id = id;
             this.Nombre = nombre;
             this.Paterno = paterno;
             this.Materno = materno;
             this.Sexo = sexo;
-
+            this.Cedula=cedula;
         }
-        public Paciente(int id, String nombre, String paterno, String materno,int edad, String telefono, String direccion, String email, char sexo)
+        public Doctor(int id, String nombre, String paterno, String materno, int edad, String telefono, String direccion, String email, char sexo, String cedula)
         {
             this.Id = id;
             this.Nombre = nombre;
@@ -40,7 +41,7 @@ namespace SinMiedos
             this.Direccion = direccion;
             this.Email = email;
             this.Sexo = sexo;
-
+            this.Cedula = cedula;
         }
 
     }

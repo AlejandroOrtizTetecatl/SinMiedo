@@ -53,6 +53,13 @@
                 </Rectangle>
             </Grid>
             <StackPanel Grid.Row="1" Margin="0">
+                <Button Margin="0 10" Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionDoctor">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="Users" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Doctores" FontFamily="Champagne &amp; Limousines"/>
+                    </Grid>
+                </Button>
+
                 <Button Margin="0 10" Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionUsuario">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center"/>

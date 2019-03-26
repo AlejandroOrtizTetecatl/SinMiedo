@@ -69,6 +69,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Conexion.cs" />
+    <Compile Include="DAODoctor.cs" />
+    <Compile Include="DAOPaciente.cs" />
+    <Compile Include="Doctor.cs" />
+    <Compile Include="FormularioDoctor.xaml.cs">
+      <DependentUpon>FormularioDoctor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormularioUsuario.xaml.cs">
       <DependentUpon>FormularioUsuario.xaml</DependentUpon>
     </Compile>
@@ -79,9 +85,14 @@
     <Compile Include="PaginaDeReportes.xaml.cs">
       <DependentUpon>PaginaDeReportes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DAOUsuario.cs" />
     <Compile Include="VentanMenu.xaml.cs">
       <DependentUpon>VentanMenu.xaml</DependentUpon>
     </Compile>
+    <Page Include="FormularioDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FormularioUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

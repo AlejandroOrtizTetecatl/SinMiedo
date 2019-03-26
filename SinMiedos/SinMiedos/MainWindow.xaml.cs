@@ -16,11 +16,12 @@ using System.Windows.Shapes;
 
 namespace SinMiedos
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+public partial class MainWindow : Window
     {
+        public DAOUsuario daousuario = new DAOUsuario();
+        public DAOPaciente pac = new DAOPaciente();
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -38,10 +39,19 @@ namespace SinMiedos
             }
             else
             {
-                VentanMenu menu = new VentanMenu(user);
-                menu.Owner = this;
-                menu.Show();
-                this.Hide();
+             if( daousuario.validarDatos(user, contra))
+                {
+                    VentanMenu menu = new VentanMenu(user);
+                    menu.Owner = this;
+                    menu.Show();
+                    this.Hide();
+
+                }
+                else{
+                    MessageBox.Show("Usuario y contraseña incorrectos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }            
+
 
             }
 
