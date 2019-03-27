@@ -20,9 +20,9 @@
         <Grid Margin="16,75,16,16" Background="White">
 
             <materialDesign:DialogHost DialogClosing="Sample1_DialogHost_OnDialogClosing"  Height="Auto" Width="auto">
+               
                 <materialDesign:DialogHost.DialogContent>
-                    <StackPanel Margin="16" >
-
+                    <StackPanel Margin="16" Height="auto" Width="300">
                         <TextBox x:Name="txtNombre" Margin="0,10" materialDesign:HintAssist.Hint="Nombre" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18px"/>
                         <StackPanel Orientation="Horizontal" Width="auto" Height="auto">
                             <TextBox x:Name="txtPaterno" Margin="0,10" materialDesign:HintAssist.Hint="Apellido paterno" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18px"/>
@@ -41,11 +41,16 @@
                                 Masculino
                             </ComboBoxItem>
                         </ComboBox>
-                        <TextBlock x:Name="txtIdDoctor" Margin="0,10" FontSize="18px" Visibility="Hidden" />
+                        <TextBlock x:Name="txtIdDoctor" Margin="0,10" FontSize="18px" Visibility="Collapsed" />
+                        <StackPanel Orientation="Horizontal" Width="auto" Height="auto">
+                            <TextBox x:Name="txtUsuario" Margin="0,10" materialDesign:HintAssist.Hint="Usuario" Width="150" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18px"/>
+                            <PasswordBox x:Name="txtPassword" Margin="4,10" materialDesign:HintAssist.Hint="Contrasenia" Width="150" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontSize="18px"/>
+                        </StackPanel>
+
+
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Style="{StaticResource MaterialDesignFlatButton}"  IsDefault="True" Margin="0 8 8 0" Click="Agregar" 
-                                    Command="materialDesign:DialogHost.CloseDialogCommand">
+                            <Button x:Name="btnAgregarModal" Style="{StaticResource MaterialDesignFlatButton}"  IsDefault="True" Margin="0 8 8 0" Click="Agregar">
                                 Aceptar
                             </Button>
                             <Button Style="{StaticResource MaterialDesignFlatButton}" IsCancel="True" Margin="0 8 8 0"

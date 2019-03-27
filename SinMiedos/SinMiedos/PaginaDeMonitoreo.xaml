@@ -21,22 +21,11 @@
         <Grid Grid.Column="0">
                 <StackPanel Orientation="Horizontal" Margin="16,0,0,0">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontFamily="Open Sans" >Nombre del paciente:</TextBlock>
-                    <ComboBox x:Name="ComboPacientes" materialDesign:HintAssist.Hint="Buscar paciente" IsEditable="True" materialDesign:HintAssist.HintOpacity=".26" Margin="5,25" Width="180">
-                        <ComboBoxItem>
-                            Alejandro Ortiz Tetecatl
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            Cristian Rodriguez mayahua
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            Jose Moises Aguilar Torres
-                        </ComboBoxItem>
-                    </ComboBox>
-
+                <ComboBox x:Name="ComboPacientes" materialDesign:HintAssist.Hint="Buscar paciente" IsEditable="True" materialDesign:HintAssist.HintOpacity=".26" Margin="5,25" Width="180"/>
                 <Button x:Name="btnCalcular" Margin="10" Click="BtnCalcular_Click"  Style="{StaticResource MaterialDesignRaisedDarkButton}"  >Calcular</Button>
-                    <Button x:Name="btnPausar" Margin="10" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Resource name: MaterialDesignRaisedAccentButton" Background="#FFFF3B9D" BorderBrush="#FFFF3B9D">Pausar</Button>
-                    <Button x:Name="btnReiniciar" Margin="10" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Resource name: MaterialDesignRaisedAccentButton" BorderBrush="#FF47BE7A" Background="#FF47BE7A">Reiniciar</Button>
-                    <Button x:Name="btnGuardar" Margin="10" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Resource name: MaterialDesignRaisedAccentButton">Guardar</Button>
+                <Button x:Name="btnPausar" Margin="10" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Resource name: MaterialDesignRaisedAccentButton" Background="#FFFF3B9D" BorderBrush="#FFFF3B9D" Click="BtnPausar_Click">Pausar</Button>
+                <Button x:Name="btnReiniciar" Margin="10" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Resource name: MaterialDesignRaisedAccentButton" BorderBrush="#FF47BE7A" Background="#FF47BE7A" Click="BtnReiniciar_Click">Reiniciar</Button>
+                <Button x:Name="btnGuardar" Margin="10" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Resource name: MaterialDesignRaisedAccentButton" Click="BtnGuardar_Click">Guardar</Button>
 
             </StackPanel>
         </Grid>

@@ -33,6 +33,7 @@ namespace SinMiedos
                         datos += reader.GetString(0);
                     }
                     Console.WriteLine(datos);
+                    
                     return  true;
                 }
                 else
@@ -40,13 +41,44 @@ namespace SinMiedos
                     Console.WriteLine("No se encontraron datos.");
                     return false;
                 }
-                return true;
             }
             else
             {
                 return false;
             }
         }
+
+        public String IdUsuario(String nombre, String password)
+        {
+            string query = "SELECT * FROM `administrador` WHERE Usuario ='" + nombre + "' and Contrasenia ='" + password + "';";
+            MySqlDataReader reader;
+
+            if (conexion.Conectar())
+            {
+                MySqlCommand commandDatabase = new MySqlCommand(query, conexion.conexion);
+                reader = commandDatabase.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        datos = reader.GetString(3);
+                    }
+                    Console.WriteLine(datos);
+
+                    return datos;
+                }
+                else
+                {
+                    Console.WriteLine("No se encontraron datos.");
+                    return datos;
+                }
+            }
+            return datos;
+        }
+
+
+
 
 
     }

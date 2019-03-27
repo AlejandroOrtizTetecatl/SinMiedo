@@ -27,15 +27,25 @@ namespace SinMiedos
 
         public IList<DataPoint> Points { get; private set; }
         Random r = new Random();
+        DAOPaciente daopaciente = new DAOPaciente();
         public PaginaDeMonitoreo()
+       
         {
             InitializeComponent();
-            btnCalcular.Click += BtnCalcular_Click;
+      
+            List<Paciente> items = daopaciente.DatosPaciente();
+            foreach (var item in items)
+            {
+                ComboPacientes.Items.Add(item.Nombre + " " + item.Paterno + " " + item.Materno);
+            }
+
+
         }
 
         private void BtnCalcular_Click(object sender, RoutedEventArgs e)
         {
-            String value = ((ComboBoxItem)ComboPacientes.SelectedItem).Content.ToString();
+ 
+            String value = ComboPacientes.SelectedItem.ToString();
 
             PlotModel model = new PlotModel();
 
@@ -65,6 +75,20 @@ namespace SinMiedos
             Grafica.Model = model;
 
         }
-    
+
+        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnPausar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnReiniciar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

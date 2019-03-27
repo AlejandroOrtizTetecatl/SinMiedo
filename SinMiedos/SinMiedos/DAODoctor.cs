@@ -51,13 +51,16 @@ namespace SinMiedos
 
         }
 
-        public Boolean AgregarDoctor(string nombre, string paterno, string materno, int edad, string telefono, string direccion, string email, char sexo, string cedula)
+        public Boolean AgregarDoctor(string nombre, string paterno, string materno, int edad, string telefono, string direccion, string email, char sexo, string cedula, string usuario, string password)
         {
             query = "INSERT INTO persona (`Nombre`, `Paterno`, `Materno`, `Edad`, `Telefono`, `Direccion`, `email`, `Sexo`) " +
-                    "VALUES ('" + nombre + "','" + paterno + "','" + materno + "'," + edad + ",'" + telefono + "','" + direccion + "','" + email + "','" + sexo + "'); INSERT INTO `medico`(`id_Persona`, `Cedula`) VALUES ((SELECT MAX(id)from persona),'"+cedula+"');";
+                    "VALUES ('" + nombre + "','" + paterno + "','" + materno + "'," + edad + ",'" + telefono + "','" + direccion + "','" + email + "','" + sexo + "');" +
+                    "INSERT INTO `medico`(`id_Persona`, `Cedula`)" +
+                    "VALUES ((SELECT MAX(id)from persona),'"+cedula+ "'); " +
+                    "INSERT INTO administrador(`Usuario`, `Contrasenia`, `TipoUsuario`,`id_Licencia`,`id_Persona`)" +
+                    "VALUES ('"+ usuario + "','"+ password+ "','doctor', 1 ,(SELECT MAX(id)from persona));";
 
-            try
-            {
+            try{
                 if (conexion.Conectar())
                 {
                     commandDatabase = new MySqlCommand(query, conexion.conexion);

@@ -25,13 +25,35 @@ namespace SinMiedos
     {
         String usuario;
 
-        public VentanMenu(String Nombre)
+        public VentanMenu(String Nombre, String TipoUsuario)
         {
             InitializeComponent();
             txtUsuario.Text = Nombre;
-            btnNormal.Visibility = Visibility.Hidden;          
+            txtadministrador.Text = TipoUsuario;
+            btnNormal.Visibility = Visibility.Hidden;
+            OcultarBotones();
         }
 
+        private void OcultarBotones()
+        {
+            String Tipo = txtadministrador.Text;
+            Console.WriteLine("El Tipo Es"+Tipo);
+            if (Tipo == "administrador")
+            {
+                btnDoctor.Visibility = Visibility.Visible;
+                btnPaciente.Visibility = Visibility.Hidden;
+                btnMonitoreo.Visibility = Visibility.Hidden;
+                btnReporte.Visibility = Visibility.Hidden;
+            }
+            if(Tipo == "doctor")
+            {
+                btnDoctor.Visibility = Visibility.Collapsed;
+                btnPaciente.Visibility = Visibility.Visible;
+                btnMonitoreo.Visibility = Visibility.Visible;
+                btnReporte.Visibility = Visibility.Visible;
+
+            }
+        }
 
         private void Menu_load(object sender, EventArgs e)
         {
@@ -52,8 +74,7 @@ namespace SinMiedos
         private void Minimizar(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
-
-
+            
         }
 
         private void Maximizar(object sender, RoutedEventArgs e)

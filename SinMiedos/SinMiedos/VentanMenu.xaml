@@ -46,6 +46,7 @@
                     </Ellipse.Fill>
                 </Ellipse>
                 <TextBlock HorizontalAlignment="Center" Height="25"  Margin="0,80,0,0" Text="Alejandro Ortiz Tetecatl"  Foreground="#DDFFFFFF" FontFamily="Open Sans" FontWeight="Bold" Name="txtUsuario" />
+                <TextBlock HorizontalAlignment="Center" Height="25"  Margin="0,80,0,0" Foreground="#DDFFFFFF" FontFamily="Open Sans" FontWeight="Bold" Name="txtadministrador" Visibility="Hidden" />
                 <Rectangle Width="125" Height="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,7">
                     <Rectangle.Fill>
                         <SolidColorBrush Color="#FFFC73B5"/>
@@ -53,28 +54,28 @@
                 </Rectangle>
             </Grid>
             <StackPanel Grid.Row="1" Margin="0">
-                <Button Margin="0 10" Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionDoctor">
+                <Button x:Name="btnDoctor" Margin="0 10" Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionDoctor">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Users" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="Doctores" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 
-                <Button Margin="0 10" Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionUsuario">
+                <Button x:Name="btnPaciente" Margin="0 10" Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionUsuario">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="Pacientes" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 
-                <Button Margin="0 10"  Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionMonitoreo">
+                <Button x:Name="btnMonitoreo" Margin="0 10"  Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionMonitoreo">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="HeartPulse" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="Monitoreo" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 
-                <Button Margin=" 0 10"  Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionReporte">
+                <Button x:Name="btnReporte" Margin=" 0 10"  Background="#FF2A4574" BorderBrush="#FF333399" Height="45" Click="NavegacionReporte">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="FileDocumentOutline" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="Reportes" FontFamily="Champagne &amp; Limousines"/>

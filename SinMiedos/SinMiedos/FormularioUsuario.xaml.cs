@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
+using System.Text.RegularExpressions;
 
 
 namespace SinMiedos
@@ -70,7 +71,8 @@ namespace SinMiedos
                 if (pacientes.EliminarPaciente(Pacienteid)){
 
                     MessageBox.Show("Paciente eliminado correctamente", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
-                    
+                    DataGrid.ItemsSource = pacientes.DatosPaciente();
+
                 }
                 else
                 {
@@ -102,12 +104,103 @@ namespace SinMiedos
             Email = txtEmail.Text;
             int indice = cmbSexo.SelectedIndex;
             Sexo = indice == 0 ? 'F' : 'M';
-            Edad = txtEdad.Text == "" ? 0 : Edad = int.Parse(txtEdad.Text);
-
-            pacientes.AgregarPaciente(Nombre, Paterno, Materno, Edad, Telefono, Direccion, Email, Sexo);
-
-            MessageBox.Show("Paciente Agregado correctamente");
             
+            if (IsValidarEdad(txtEdad.Text))
+            {
+                Edad = int.Parse(txtEdad.Text);
+            }
+            else
+            {
+                MessageBox.Show("EdadInvalida", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            if (Validar())
+            {
+                pacientes.AgregarPaciente(Nombre, Paterno, Materno, Edad, Telefono, Direccion, Email, Sexo);
+
+                MessageBox.Show("Paciente Agregado correctamente");
+                DataGrid.ItemsSource = pacientes.DatosPaciente();
+            }
+            else {
+                MessageBox.Show("Existen campos vacios", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
+        public static bool IsValidEmailAddress(string s)
+        {
+            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            return regex.IsMatch(s);
+        }
+
+
+        public static bool IsPhoneNumber(string number)
+        {
+            return Regex.Match(number, @"^([0-9]{10})$").Success;
+        }
+
+
+        public static bool IsValidarEdad(string edad)
+        {
+            int edadint = int.Parse(edad);
+            if (edadint > 0 & edadint < 100)
+            {
+                return Regex.Match(edad, @"^([0-9]{2})$").Success;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        private bool Validar()
+        {
+            bool validarEmail = IsValidEmailAddress(Email);
+            bool validarTelefono = IsPhoneNumber(Telefono);
+
+            if (Nombre.Length == 0)
+            {
+                return false;
+            }
+            if (Paterno.Length == 0)
+            {
+                return false;
+            }
+            if (Materno.Length == 0)
+            {
+                return false;
+            }
+            if (Direccion.Length == 0)
+            {
+                return false;
+            }
+            if (Telefono.Length == 0)
+            {
+                return false;
+            }
+            if (Edad == 0)
+            {
+                return false;
+            }
+            if (Email.Length == 0)
+            {
+                return false;
+            }
+            if (!validarEmail)
+            {
+                MessageBox.Show("Correo incorrecto", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if (!validarEmail)
+            {
+                MessageBox.Show("Telefono incorrecto", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void EditarPaciente()
@@ -126,7 +219,7 @@ namespace SinMiedos
             if (respuesta)
             {
                 MessageBox.Show("Paciente Editado Correctamente", "Aviso: ", MessageBoxButton.OK, MessageBoxImage.Information);
-              
+                DataGrid.ItemsSource = pacientes.DatosPaciente(); 
             }
             else
             {

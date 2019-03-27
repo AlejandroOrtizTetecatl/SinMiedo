@@ -59,6 +59,5 @@ D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\OxyPlot.pdb
 D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\OxyPlot.xml
 D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\OxyPlot.Wpf.pdb
 D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\bin\Debug\OxyPlot.Wpf.xml
-D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\FormularioDoctor.g.cs
 D:\Documentos\GitHub\SinMiedo\SinMiedos\SinMiedos\obj\Debug\FormularioDoctor.baml

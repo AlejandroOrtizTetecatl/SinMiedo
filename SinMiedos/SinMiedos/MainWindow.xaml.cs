@@ -41,7 +41,7 @@ public partial class MainWindow : Window
             {
              if( daousuario.validarDatos(user, contra))
                 {
-                    VentanMenu menu = new VentanMenu(user);
+                    VentanMenu menu = new VentanMenu(user, daousuario.IdUsuario(user, contra));
                     menu.Owner = this;
                     menu.Show();
                     this.Hide();

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
+using System.Text.RegularExpressions;
 
 namespace SinMiedos
 {
@@ -31,6 +32,8 @@ namespace SinMiedos
         String Email;
         Char Sexo;
         String Cedula;
+        String Usuario;
+        String Contraseña;
         int IdPersona;
         bool Permiso = true;
 
@@ -83,6 +86,7 @@ namespace SinMiedos
                 {
 
                     MessageBox.Show("Paciente eliminado correctamente", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    DataGridDoctor.ItemsSource = daodoctor.DatosDoctores();
 
                 }
                 else
@@ -120,17 +124,17 @@ namespace SinMiedos
             Sexo = indice == 0 ? 'F' : 'M';
             Edad = txtEdad.Text == "" ? 0 : Edad = int.Parse(txtEdad.Text);
 
-            if (daodoctor.EditarDoctor(IdPersona,Nombre,Paterno,Materno,Telefono,Direccion,Email,Sexo,Edad,Cedula))
-            {
+                if (daodoctor.EditarDoctor(IdPersona, Nombre, Paterno, Materno, Telefono, Direccion, Email, Sexo, Edad, Cedula))
+                {
 
-                MessageBox.Show("Paciente editado Correctamente correctamente", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Paciente editado Correctamente correctamente", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    DataGridDoctor.ItemsSource = daodoctor.DatosDoctores();
+                }
+                else
+                {
+                    MessageBox.Show("Oops, algo salió mal ...", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
-            }
-            else
-            {
-                MessageBox.Show("Oops, algo salió mal ...", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
-            }
+                }
         }
 
         private void AgregarDoctor()
@@ -144,17 +148,34 @@ namespace SinMiedos
             Cedula = txtCedula.Text;
             int indice = cmbSexo.SelectedIndex;
             Sexo = indice == 0 ? 'F' : 'M';
-            Edad = txtEdad.Text == "" ? 0 : Edad = int.Parse(txtEdad.Text);
+            Usuario = txtUsuario.Text;
+            Contraseña = txtPassword.Password;
 
-            if (daodoctor.AgregarDoctor(Nombre,Paterno,Materno,Edad,Telefono,Direccion,Email,Sexo,Cedula))
+            if (IsValidarEdad(txtEdad.Text))
             {
-
-                MessageBox.Show("Paciente agregado Correctamente correctamente", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                Edad = int.Parse(txtEdad.Text);
             }
             else
             {
-                MessageBox.Show("Oops, algo salió mal ...", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("EdadInvalida", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            if (validar())
+            {
+                   if (daodoctor.AgregarDoctor(Nombre, Paterno, Materno, Edad, Telefono, Direccion, Email, Sexo, Cedula, Usuario, Contraseña)){
+
+                        MessageBox.Show("Paciente agregado Correctamente correctamente", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        DataGridDoctor.ItemsSource = daodoctor.DatosDoctores();
+                        btnAgregarModal.Command = DialogHost.CloseDialogCommand;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Oops, algo salió mal ...", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
 
@@ -183,6 +204,90 @@ namespace SinMiedos
                 cmbSexo.SelectedIndex = sexo == 'F' ? 0 : 1;
             }
 
+        }
+
+        public static bool IsValidEmailAddress(string s){
+            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            return regex.IsMatch(s);
+        }
+
+        public static bool IsPhoneNumber(string number)
+        {
+            return Regex.Match(number, @"^([0-9]{10})$").Success;
+        }
+
+        public static bool IsValidarEdad(string edad)
+        {
+            int edadint = int.Parse(edad);
+            if (edadint>0 & edadint<100)
+            {
+                return Regex.Match(edad, @"^([0-9]{2})$").Success;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Boolean validar()
+        {
+            bool validarEmail = IsValidEmailAddress(Email);
+            bool validarTelefono = IsPhoneNumber(Telefono);
+
+            if (Nombre.Length == 0)
+            {
+                return false;
+            }
+            if (Paterno.Length == 0)
+            {
+                return false;
+            }
+            if (Materno.Length == 0)
+            {
+                return false;
+            }
+            if (Direccion.Length == 0)
+            {
+                return false;
+            }
+            if (Telefono.Length == 0)
+            {
+                return false;
+            }
+            if (Edad == 0)
+            {
+                return false;
+            }
+            if (Cedula.Length == 0)
+            {
+                return false;
+            }
+            if (Email.Length == 0)
+            {
+                return false;
+            }
+            if (Usuario.Length == 0)
+            {
+                return false;
+            }
+            if (Contraseña.Length == 0)
+            {
+                return false;
+            }
+            if (!validarEmail)
+            {
+                MessageBox.Show("Correo incorrecto", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if (!validarEmail)
+            {
+                MessageBox.Show("Telefono incorrecto", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
