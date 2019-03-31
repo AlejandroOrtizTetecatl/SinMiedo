@@ -37,6 +37,12 @@ public partial class MainWindow : Window
                 MessageBox.Show("Ingrese un usuario y contraseña", "Error",MessageBoxButton.OK, MessageBoxImage.Error);
      
             }
+            if (user.Length > 20 || user.Length > 20 )
+            {
+                MessageBox.Show("Ingrese un usuario y contraseña correcto", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Usuario.Text = "";
+                Contrasenia.Password = "";
+            }
             else
             {
              if( daousuario.validarDatos(user, contra))

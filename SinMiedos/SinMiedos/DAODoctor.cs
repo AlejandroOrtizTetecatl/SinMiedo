@@ -57,7 +57,7 @@ namespace SinMiedos
                     "VALUES ('" + nombre + "','" + paterno + "','" + materno + "'," + edad + ",'" + telefono + "','" + direccion + "','" + email + "','" + sexo + "');" +
                     "INSERT INTO `medico`(`id_Persona`, `Cedula`)" +
                     "VALUES ((SELECT MAX(id)from persona),'"+cedula+ "'); " +
-                    "INSERT INTO administrador(`Usuario`, `Contrasenia`, `TipoUsuario`,`id_Licencia`,`id_Persona`)" +
+                    "INSERT INTO usuarios(`Usuario`, `Contrasenia`, `TipoUsuario`,`id_Licencia`,`id_Persona`)" +
                     "VALUES ('"+ usuario + "','"+ password+ "','doctor', 1 ,(SELECT MAX(id)from persona));";
 
             try{
@@ -105,7 +105,7 @@ namespace SinMiedos
             }
         }
 
-        public Boolean EditarDoctor(int idPersona, string nombre, string paterno, string materno, string telefono, string direccion, string email, char sexo, int edad, string cedula)
+        public Boolean EditarDoctor(int idPersona, string nombre, string paterno, string materno, string telefono, string direccion, string email, char sexo, int edad, string cedula,string usuario, string contrasenia)
         {
             try
             {
@@ -121,8 +121,9 @@ namespace SinMiedos
                         "WHERE id =" + idPersona + ";" +
                         "UPDATE medico SET "+
                         "`Cedula`= '" + cedula + "'" +
-                        "WHERE id_Persona =" + idPersona + ";";
-
+                        "WHERE id_Persona =" + idPersona + ";" +
+                        "UPDATE usuarios SET Usuario = '" + usuario +"', Contrasenia ='" + contrasenia + "' WHERE id_Persona = " + idPersona + ";";
+               
                 if (conexion.Conectar())
                 {
                     commandDatabase = new MySqlCommand(query, conexion.conexion);
@@ -146,7 +147,7 @@ namespace SinMiedos
         {
             var items = new List<Doctor>();
 
-            string query = "SELECT *  FROM persona INNER JOIN medico ON persona.id = medico.id_Persona WHERE medico.Estatus = 1 and medico.id_Medico =" + DoctorId;
+            string query = "SELECT *  FROM persona INNER JOIN medico ON persona.id = medico.id_Persona INNER JOIN usuarios on medico.id_Persona = usuarios.id_Persona WHERE medico.Estatus = 1 and medico.id_Medico =" + DoctorId;
             if (conexion.Conectar())
             {
                 commandDatabase = new MySqlCommand(query, conexion.conexion);
@@ -159,7 +160,7 @@ namespace SinMiedos
                         int id = int.Parse(reader.GetString(10));
                         char sexo = char.Parse(reader.GetString(8));
                         int edad = int.Parse(reader.GetString(4));
-                        items.Add(new Doctor(id,reader.GetString(1), reader.GetString(2), reader.GetString(3),edad, reader.GetString(5), reader.GetString(6), reader.GetString(7),sexo,reader.GetString(11)));
+                        items.Add(new Doctor(id,reader.GetString(1), reader.GetString(2), reader.GetString(3),edad, reader.GetString(5), reader.GetString(6), reader.GetString(7),sexo,reader.GetString(11), reader.GetString(14), reader.GetString(15)));
                     }
                     Console.WriteLine(datos);
                 }

@@ -18,7 +18,7 @@ namespace SinMiedos
 
         public Boolean validarDatos(String nombre, String password){
             
-            string query = "SELECT * FROM `administrador` WHERE Usuario ='"+ nombre + "' and Contrasenia ='" + password+"';" ;
+            string query = "SELECT * FROM usuarios WHERE Usuario ='" + nombre + "' and Contrasenia ='" + password+"';" ;
             MySqlDataReader reader;
 
             if (conexion.Conectar())
@@ -50,7 +50,7 @@ namespace SinMiedos
 
         public String IdUsuario(String nombre, String password)
         {
-            string query = "SELECT * FROM `administrador` WHERE Usuario ='" + nombre + "' and Contrasenia ='" + password + "';";
+            string query = "SELECT * FROM usuarios WHERE Usuario ='" + nombre + "' and Contrasenia ='" + password + "';";
             MySqlDataReader reader;
 
             if (conexion.Conectar())

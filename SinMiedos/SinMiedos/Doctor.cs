@@ -20,7 +20,8 @@ namespace SinMiedos
         public String Direccion { get; set; }
         public String Email { get; set; }
         public String Cedula { get; set; }
-
+        public String Contrasenia { get; set; }
+        public String Usuario { get; set; }
         public Doctor(int id, String nombre, String paterno, String materno, char sexo,String cedula)
         {
             this.Id = id;
@@ -30,7 +31,7 @@ namespace SinMiedos
             this.Sexo = sexo;
             this.Cedula=cedula;
         }
-        public Doctor(int id, String nombre, String paterno, String materno, int edad, String telefono, String direccion, String email, char sexo, String cedula)
+        public Doctor(int id, String nombre, String paterno, String materno, int edad, String telefono, String direccion, String email, char sexo, String cedula, String usuario, String contrasenia)
         {
             this.Id = id;
             this.Nombre = nombre;
@@ -42,6 +43,8 @@ namespace SinMiedos
             this.Email = email;
             this.Sexo = sexo;
             this.Cedula = cedula;
+            this.Usuario = usuario;
+            this.Contrasenia = contrasenia;
         }
 
     }

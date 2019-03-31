@@ -1,5 +1,5 @@
 ﻿<Window x:Class="SinMiedos.VentanMenu"
-                TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="14"
         TextOptions.TextFormattingMode="Ideal"
@@ -13,7 +13,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SinMiedos"
         mc:Ignorable="d"
-        Title="Menu" Height="600" Width="1024" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="Imagenes/home.png">
+        Title="Menu" Height="600" Width="1024" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="Imagenes/idea.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -36,15 +36,17 @@
                 <RowDefinition Height="125"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid.Effect>
+           <Grid.Effect>
                 <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
             </Grid.Effect>
+           
             <Grid ShowGridLines="False" Background="#FF294473">
-                <Ellipse Height="75" Width="75" Margin="0,0,0,30" Stroke="White">
+               <!-- <Ellipse Height="75" Width="75" Margin="0,0,0,30" Stroke="White">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="Imagenes/man-15.png" Stretch="Uniform"/>
                     </Ellipse.Fill>
-                </Ellipse>
+                </Ellipse>-->
+                <Image Source="Imagenes/intellectual.png" Height="75" Width="75" VerticalAlignment="Top"  />
                 <TextBlock HorizontalAlignment="Center" Height="25"  Margin="0,80,0,0" Text="Alejandro Ortiz Tetecatl"  Foreground="#DDFFFFFF" FontFamily="Open Sans" FontWeight="Bold" Name="txtUsuario" />
                 <TextBlock HorizontalAlignment="Center" Height="25"  Margin="0,80,0,0" Foreground="#DDFFFFFF" FontFamily="Open Sans" FontWeight="Bold" Name="txtadministrador" Visibility="Hidden" />
                 <Rectangle Width="125" Height="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,7">

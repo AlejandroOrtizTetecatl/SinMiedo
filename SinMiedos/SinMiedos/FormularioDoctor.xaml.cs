@@ -70,11 +70,13 @@ namespace SinMiedos
             txtEdad.Text = "";
             txtIdDoctor.Text = "";
             txtCedula.Text = "";
+            txtUsuario.Text = "";
+            txtPassword.Password = "";
         }
 
         private void Eliminar(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Deseas eliminar al paciente?","Eliminar Paciente",MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("¿Deseas eliminar al Doctor?","Eliminar Doctor",MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
 
@@ -85,7 +87,7 @@ namespace SinMiedos
                 if (daodoctor.ElimnarDoctor(Doctorid))
                 {
 
-                    MessageBox.Show("Paciente eliminado correctamente", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Doctor eliminado correctamente", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
                     DataGridDoctor.ItemsSource = daodoctor.DatosDoctores();
 
                 }
@@ -123,18 +125,24 @@ namespace SinMiedos
             int indice = cmbSexo.SelectedIndex;
             Sexo = indice == 0 ? 'F' : 'M';
             Edad = txtEdad.Text == "" ? 0 : Edad = int.Parse(txtEdad.Text);
-
-                if (daodoctor.EditarDoctor(IdPersona, Nombre, Paterno, Materno, Telefono, Direccion, Email, Sexo, Edad, Cedula))
+            Usuario = txtUsuario.Text;
+            Contraseña = txtPassword.Password;
+            if (validar())
+            {
+                if (daodoctor.EditarDoctor(IdPersona, Nombre, Paterno, Materno, Telefono, Direccion, Email, Sexo, Edad, Cedula, Usuario, Contraseña))
                 {
 
-                    MessageBox.Show("Paciente editado Correctamente correctamente", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Doctor editado Correctamente correctamente", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
                     DataGridDoctor.ItemsSource = daodoctor.DatosDoctores();
+                    btnAgregarModal.Command = DialogHost.CloseDialogCommand;
+
                 }
                 else
                 {
                     MessageBox.Show("Oops, algo salió mal ...", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 }
+            }
         }
 
         private void AgregarDoctor()
@@ -164,7 +172,7 @@ namespace SinMiedos
             {
                    if (daodoctor.AgregarDoctor(Nombre, Paterno, Materno, Edad, Telefono, Direccion, Email, Sexo, Cedula, Usuario, Contraseña)){
 
-                        MessageBox.Show("Paciente agregado Correctamente correctamente", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Doctor agregado Correctamente correctamente", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
                         DataGridDoctor.ItemsSource = daodoctor.DatosDoctores();
                         btnAgregarModal.Command = DialogHost.CloseDialogCommand;
                     }
@@ -172,11 +180,6 @@ namespace SinMiedos
                     {
                         MessageBox.Show("Oops, algo salió mal ...", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-            }
-            else
-            {
-                MessageBox.Show("Existen campos vacios", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
             }
 
         }
@@ -200,6 +203,8 @@ namespace SinMiedos
                 txtEdad.Text = "" + item.Edad;
                 txtIdDoctor.Text = "" + item.Id;
                 txtCedula.Text = item.Cedula;
+                txtUsuario.Text = item.Usuario;
+                txtPassword.Password = item.Contrasenia;
                 char sexo = item.Sexo;
                 cmbSexo.SelectedIndex = sexo == 'F' ? 0 : 1;
             }
@@ -233,46 +238,55 @@ namespace SinMiedos
         {
             bool validarEmail = IsValidEmailAddress(Email);
             bool validarTelefono = IsPhoneNumber(Telefono);
-
+            int contador = 0;
             if (Nombre.Length == 0)
             {
-                return false;
+                contador++;
             }
             if (Paterno.Length == 0)
             {
-                return false;
+                contador++;
+
             }
             if (Materno.Length == 0)
             {
-                return false;
+                contador++;
+
             }
             if (Direccion.Length == 0)
             {
-                return false;
+                contador++;
+
             }
             if (Telefono.Length == 0)
             {
-                return false;
+                contador++;
+
             }
             if (Edad == 0)
             {
-                return false;
+                contador++;
+
             }
             if (Cedula.Length == 0)
             {
-                return false;
+                contador++;
+
             }
             if (Email.Length == 0)
             {
-                return false;
+                contador++;
+
             }
             if (Usuario.Length == 0)
             {
-                return false;
+                contador++;
+
             }
             if (Contraseña.Length == 0)
             {
-                return false;
+                contador++;
+
             }
             if (!validarEmail)
             {
@@ -282,6 +296,11 @@ namespace SinMiedos
             if (!validarEmail)
             {
                 MessageBox.Show("Telefono incorrecto", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if(contador != 0)
+            {
+                MessageBox.Show("Existen campos vacios", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             else

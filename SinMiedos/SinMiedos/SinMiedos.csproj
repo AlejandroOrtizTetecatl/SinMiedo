@@ -161,5 +161,19 @@
   <ItemGroup>
     <Resource Include="Imagenes\man-15.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\intellectual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\idea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\artificial-intelligence%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\artificial-intelligence%282%29.png" />
+    <Resource Include="Imagenes\study.png" />
+    <Resource Include="Imagenes\website.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

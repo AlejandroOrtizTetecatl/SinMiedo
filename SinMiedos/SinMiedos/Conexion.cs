@@ -15,7 +15,7 @@ namespace SinMiedos
         String Port = "3306";
         String Password = "";
         String User = "root";
-        String DataName = "SinMiedo";
+        String DataName = "sinmiedo";
         public MySqlConnection conexion;
 
         private Conexion()
